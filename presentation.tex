@@ -1,0 +1,298 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[french]{beamer}
+\input{preamble/packages}
+\input{preamble/math_basics}
+\input{preamble/math_mine}
+\input{preamble/redac}
+\input{preamble/draw}
+%\input{preamble/acronyms}
+
+\setbeamertemplate{headline}[singleline]
+\setbeamertemplate{footline}[title]
+
+\title{Java Objet : Expériences en cours}
+\subject{Pédagogie}
+\keywords{projets, alignement}
+\author{Olivier Cailloux}
+\institute[LAMSADE]{LAMSADE, Université Paris-Dauphine}
+\date{\formatdate{4}{6}{2019}}
+
+\begin{document}
+\begin{frame}[plain]
+	\tikz[remember picture,overlay]{
+		\path (current page.south west) node[anchor=south west, inner sep=0] {
+			\includegraphics[height=1cm]{LAMSADE95.jpg}
+		};
+		\path (current page.south east) node[anchor=south east, inner sep=0] {
+			\includegraphics[height=9mm]{dauphine_psl2018.png}
+		};
+		\path (current page.south) ++ (0, 4em) node[anchor=south, inner sep=0] {
+			\scriptsize\textcolor{blue}{\url{https://github.com/oliviercailloux/REPO}}
+		};
+%thanks to https://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-opening-br/13366414#13366414
+%REPO=…
+%curl -u 'oliviercailloux' https://api.github.com/user/repos -d "{\"name\":\"${REPO}\"}"
+%git remote add origin git@github.com:oliviercailloux/${REPO}.git
+%git push --set-upstream origin master
+	}
+	\titlepage
+\end{frame}
+\addtocounter{framenumber}{-1}
+
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents[hideallsubsections, sectionstyle=shaded/show]
+\end{frame}
+
+\AtBeginSection{
+	\begin{frame}
+		\frametitle{Outline}
+		\tableofcontents[currentsection, hideallsubsections]
+	\end{frame}
+}
+
+\section{Cadre}
+\subsection{Cours}
+\begin{frame}
+	\frametitle{Cours}
+	\begin{itemize}
+		\item Java Objet (et Java Projet), MIDO, L3 Apprentissage
+		\begin{itemize}
+			\item 17 × 3h
+			\item 2016--, 2017--, 2018--
+		\end{itemize}
+		\item Serveurs Java (Java EE), MIDO, M2 SITN Apprentissage 
+		\begin{itemize}
+			\item 8 × 3h
+			\item 2015--, 2016--, 2017--
+		\end{itemize}
+		\item Serveurs Java (Java EE), MIDO, M2 IF Classique, option 
+		\begin{itemize}
+			\item 8 × 3h
+			\item 2015--, 2016--, 2017--
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{En pratique}
+	\begin{itemize}
+		\item Appui sur livre ouvert de Eck pour cours (peu exploité) et exercices (très exploité)
+		\item Tout sur internet (pas de papier)
+		\item Exemples de code, diapos
+		\item \href{https://github.com/oliviercailloux/java-course/blob/master/Divers/L3a.adoc}{Page} de suivi des séances avec liens vers les explications par sujet traité
+		\item Manque (?) : syllabus cohérent
+	\end{itemize}
+\end{frame}
+
+\section{Alignement pédagogique}
+\begin{frame}
+	\frametitle{Objectifs}
+	\begin{itemize}
+		\item Principes d’ingénierie logicielle : code maintenable plutôt que code fonctionnel
+		\item Code en pratique : sur machine
+		\item Usage des outils modernes d’aide (compilation, avertissements)
+		\item Rentabilité du temps investi à maitriser un outil (t.q. git)
+		\item Recherche de documentation : code copié d’une source hasardeuse VS source officielle / récente / crédible
+		\item Volonté de les faire travailler entre les séances
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Évaluation}
+	Fluctuante selon les années !
+	\begin{itemize}
+		\item Évaluation projet et contrôle continu (pour suivi des explications en séance)
+		\item Projet : contributions en binômes puis individuelles puis retour aux binômes
+		\item Avec devoirs maison
+		\item Avec évaluation orale en séance
+		\item Avec exercices en séances
+		\item Avec QCMs
+	\end{itemize}
+\end{frame}
+
+\section{Projets}
+\begin{frame}
+	\frametitle{Cadre}
+	\begin{itemize}
+		\item Groupes 4 à 8
+		\item Chaque groupe un projet différent
+		\item Projets à objectif utile, publication open source visée
+		\item Exemple : bibliothèque gestion de préférences ; gestion de bibliographie collaborative ; gestion des cours de Dauphine…
+		\item Énoncés courts (2 pages)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{En pratique}
+	\begin{itemize}
+		\item Appui important sur GitHub et Pull Requests
+		\item \href{https://github.com/13tomoore/J-Confs/pull/5\#issuecomment-495630823}{Exemple}
+		\item Année découpée en itérations
+		\item Travail par binôme sur tâches lors d’une itération
+		\item Binômes tournants
+		\item Fusion dans master seulement sur mon accord
+		\item Feuille de calcul pour garder trace des contributions par binôme par itération
+		\item Étudiants fréquemment en difficultés avec git
+	\end{itemize}
+\end{frame}
+
+\section{Contrôle Continu}
+\begin{frame}
+	\frametitle{Devoirs maison}
+	Remise via GitHub
+	\begin{block}{Devoirs du livre}
+		\begin{itemize}
+			\item Ils ont les corrections à l’avance (!)
+			\item Comptent en tout pour 10\% de la note
+			\item Notation binaire (fait / pas fait) ; zéro si en retard
+			\item Pris sérieusement (?)
+		\end{itemize}
+	\end{block}
+	\begin{block}{Devoirs hors livre}
+		\begin{itemize}
+			\item −3/20 par heure de retard
+			\item Correction automatique après coup
+			\item Note transmise via MyCourse
+			\item Correction : éléments en séance ou code complet
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{QCM}
+	\begin{itemize}
+		\item Deux ou trois par cours
+		\item Une minute par question
+		\item Avec MyCourse (très insatisfaisant)
+		\item Correction automatique par MyCourse, résultats immédiats
+		\item Points négatifs
+		\item Difficile à formuler et calibrer
+		\item En pause en attendant meilleurs outils
+	\end{itemize}
+	NB : également utilisation de WooClap en séance, très appréciée, sans notation
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exercices notés en séance}
+	\begin{itemize}
+		\item GitHub Class room
+		\item Lien fourni en début de séance (\href{https://classroom.github.com/a/Ny5sBwFU}{exemple})
+		\item Chaque étudiant démarre avec une copie du dépôt que j’ai créé au préalable
+		\item Énoncé fourni sur le dépôt lui-même
+		\item Doivent ajouter du code, des tests, …
+		\item Avec documents et internet
+		\item 20 à 40 minutes, puis −3/20 par minute de retard
+		\item Correction automatique après coup
+		\item Outil \emph{presque} formidable
+	\end{itemize}
+\end{frame}
+
+\section{Bilan}
+\begin{frame}
+	\frametitle{Quelques bénéfices}
+	\begin{itemize}
+		\item Commentaires personnalisés sur projets appréciés
+		\item Temps important passé en dehors des séances
+		\item Compréhension du point de vue de l’ingénierie logicielle (pas seulement code fonctionnel)
+		\item Compréhension (trop tardive) de l’intérêt des explications en séances
+		\item Capacité à coder
+		\item Gestion de projet, sens des reponsabilités
+		\item Projets réellement réutilisables au fil du temps
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Quelques faiblesses}
+	\begin{itemize}
+		\item Refus d’investir du temps pour maitriser ses outils
+		\item Recours encore fréquent sans critique à des sources aléatoires
+		\item Connaissance intuitive mais pas théorique : faible connaissance des mécanismes de Java, de la théorie des langages, des raisons des choix techniques et des alternatives
+		\item Possiblité toujours existante de se cacher derrière les collègues
+		\item Difficulté persistante d’évaluer les compétences des étudiants
+		\item Difficulté de doser la vitesse d’avancement des séances : fournir assez de connaissances pratiques ; ne pas inonder les étudiants (manque de temps d’exercices selon étudiants)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Un échec temporaire}
+	\begin{itemize}
+		\item Des bénéfices en termes pédagogiques
+		\item Mais un échec tout de même
+	\end{itemize}
+	\begin{block}{Analogie boiteuse}
+		\begin{itemize}
+			\item \og{}J’ai trouvé une méhode pour produire deux fois plus de carottes\fg{}
+			\item … mais il faut deux fois plus de travail et de terre
+		\end{itemize}
+	\end{block}
+	\begin{itemize}
+		\item La ressource de l’enseignant : le temps (suivi et préparation)
+		\item Ici : beaucoup trop important
+		\item Espoir d’amélioration future !
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Idées}
+	\begin{itemize}
+		\item Vidéos pour (re-)accès au contenu nécessaire en fonction du besoin
+		\item Démarrage des projets très tôt
+		\item Entrainement sur exercices corrigés automatiquement en temps réel
+		\item Jointure avec cours d’UML pour séparation ingénierie logicielle et implémentation
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+	\addtocounter{framenumber}{-1}
+	\begin{center}
+		\huge
+		\textit{Thank you for your attention!}
+	\end{center}
+\end{frame}
+
+\end{document}
+
+\appendix
+\makeatletter
+\def\insertframenumber{\@roman\c@framenumber}
+\def\inserttotalframenumber{\@roman\c@framenumber}
+\makeatother
+\AtBeginSection{
+}
+
+\clearpage\pdfbookmark[2]{\refname}{\refname}
+\begin{frame}[allowframebreaks]
+	\frametitle{\refname}
+ 	\bibliography{zotero}
+\end{frame}
+
+\clearpage\pdfbookmark{License}{License}
+\begin{frame}[plain]
+	\frametitle{License}
+	This presentation, and the associated \LaTeX{} code, are published under the \href{https://opensource.org/licenses/MIT}{MIT license}. Feel free to reuse (parts of) the presentation, under condition that you cite the author.
+	
+	Credits are to be given to \href{http://www.lamsade.dauphine.fr/~ocailloux/}{Olivier Cailloux}, Université Paris-Dauphine.
+\end{frame}
+\addtocounter{framenumber}{-1}
+\end{document}
+
+\begin{frame}
+	\frametitle{Title}
+	\begin{block}{Block}
+		\begin{itemize}
+			\item Item
+		\end{itemize}
+	\end{block}
+	\begin{itemize}
+		\item Item
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Title}
+	\begin{itemize}
+		\item Item
+	\end{itemize}
+\end{frame}
+
